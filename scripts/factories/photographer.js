@@ -1,12 +1,12 @@
 function photographerFactory (data) {
-  const { name, portrait, city, country, tagline, price } = data
+  const { name, portrait, city, country, tagline, price, id } = data
 
   const picture = `assets/photographers/${portrait}`
 
   function getUserCardDOM () {
     const article = document.createElement('article')
     article.innerHTML = `
-    <a href="#${name}" aria-label="${name}">
+    <a href="./photographer.html?id=${id}" aria-label="${name}">
       <img src="${picture}" alt="" class="photographer_img">
       <h2 class="photographer_name">${name}</h2>
     </a>

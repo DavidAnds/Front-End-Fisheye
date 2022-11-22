@@ -14,6 +14,7 @@ async function getPhotographers () {
 async function displayData (photographers) {
   const photographersSection = document.querySelector('.photographer_section')
 
+  // Pour chacun des photographe on crée un article que on va inséré dans photographers_section
   photographers.forEach((photographer) => {
     const photographerModel = photographerFactory(photographer)
     const userCardDOM = photographerModel.getUserCardDOM()
