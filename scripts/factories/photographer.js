@@ -3,6 +3,7 @@ function photographerFactory (data) {
 
   const picture = `assets/photographers/${portrait}`
 
+  // Création de 1 carte photograph-item avec img h2 et p
   function getUserCardDOM () {
     const article = document.createElement('article')
     article.innerHTML = `
@@ -17,5 +18,32 @@ function photographerFactory (data) {
     article.className = 'photographer_item'
     return article
   }
-  return { name, picture, getUserCardDOM }
+
+  // Création d'une div photograph-intro qui comprend 1 titre et 2 p
+  function getPhotographIntroDOM () {
+    const div = document.createElement('div')
+    div.innerHTML = `
+    <h1 class="photograph-name">
+      ${name}
+    </h1>
+    <p class="photograph-location">
+      ${city}, ${country}
+    </p>
+    <p class="photograph-tagline">
+      ${tagline}
+    </p>
+    `
+    div.className = 'photograph-intro'
+    return div
+  }
+
+  // Création d'une img avec la class photograph-pic
+  function getPhotographPictureDOM() {
+    const img = document.createElement('img')
+    img.setAttribute('src', picture)
+    img.className = 'photograph-pic'
+    return img
+  }
+
+  return { name, picture, getUserCardDOM, getPhotographIntroDOM, getPhotographPictureDOM }
 }

@@ -4,7 +4,7 @@ async function getPhotographerById () {
     // On récupere les données
     const response = await fetch('../../data/photographers.json')
     const { photographers } = await response.json()
-    // On garde recupérre l'id du photographe dans l'url
+    // On recupérre l'id du photographe dans l'url
     const url = (new URL(document.location)).searchParams
     const id = url.get('id')
     // On garde uniquement les données du photographe avec l'id de l'URL
@@ -17,10 +17,19 @@ async function getPhotographerById () {
   }
 }
 
+// Fonction qui va ajouter à notre DOM 1 div intro et 1div img avec les datas provenant de notre photograph
+async function displayHeader(photographer) {
+  const photographHeader = document.querySelector('.photograph-header')
+  const photographModel = photographerFactory(photographer)
+  const photographIntro = photographModel.getPhotographIntroDOM()
+  const photographPic = photographModel.getPhotographPictureDOM()
+  photographHeader.appendChild(photographIntro)
+  photographHeader.appendChild(photographPic)
+}
+
 async function init () {
-// On récuperre l'id à partir de l'url
   const { photographer } = await getPhotographerById()
-  console.log(photographer)
+  displayHeader(photographer)
 }
 
 init()
