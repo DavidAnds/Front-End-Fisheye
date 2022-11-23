@@ -5,14 +5,13 @@
 .photograph-header {
     height: 300px;
     margin: 0 100px;
-    display: flex;
+    display: grid;
+    grid-template-columns: repeat(3, 1fr);
     align-items: center;
-    justify-content: space-between;
 }
 
 .photograph-intro {
     order: 0;
-    margin-left: 40px;
 }
 
 .photograph-name {
@@ -38,7 +37,7 @@
     object-fit: cover;
     border-radius: 100%;
     order: 2;
-    margin-right: 40px;
+    justify-self: flex-end;
 }
 
 .contact_button {
@@ -53,6 +52,7 @@
     border-radius: 5px;
     cursor: pointer;
     order: 1;
+    justify-self: center    ;
 }
 
 .modal {

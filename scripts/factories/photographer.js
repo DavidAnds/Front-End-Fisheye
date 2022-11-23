@@ -38,7 +38,7 @@ function photographerFactory (data) {
   }
 
   // Création d'une img avec la class photograph-pic
-  function getPhotographPictureDOM() {
+  function getPhotographPictureDOM () {
     const img = document.createElement('img')
     img.setAttribute('src', picture)
     img.className = 'photograph-pic'
