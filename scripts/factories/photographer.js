@@ -3,6 +3,14 @@ function photographerFactory (data) {
 
   const picture = `assets/photographers/${portrait}`
 
+  // Creation de un paragraph price dans le dom
+  function getPriceParagraphDOM () {
+    const p = document.createElement('p')
+    p.innerText = `${price}/Jour`
+    p.className = 'photograph-price'
+    return p
+  }
+
   // Création de 1 carte photograph-item avec img h2 et p
   function getUserCardDOM () {
     const article = document.createElement('article')
@@ -45,5 +53,5 @@ function photographerFactory (data) {
     return img
   }
 
-  return { name, picture, getUserCardDOM, getPhotographIntroDOM, getPhotographPictureDOM }
+  return { name, picture, getUserCardDOM, getPhotographIntroDOM, getPhotographPictureDOM, getPriceParagraphDOM }
 }

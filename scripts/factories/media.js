@@ -1,8 +1,17 @@
-function mediaFactory (data) {
+function mediaFactory (data, allLikes) {
   const { image, video, title, likes, photographerId } = data
 
-  const routes = `./assets/media/photograph-id-${photographerId}/`
+  // Creation d'un paragraph qui affiche tout les likes
+  function getAllLikesDom () {
+    const p = document.createElement('p')
+    p.innerHTML = `
+        ${allLikes} <i class="all-likes-icon fa-solid fa-heart"></i>
+      `
+    p.className = 'photograph-all-likes'
+    return p
+  }
 
+  const routes = `./assets/media/photograph-id-${photographerId}/`
   function getMediaItemDOM () {
     const article = document.createElement('article')
     article.className = 'media-item'
@@ -14,7 +23,7 @@ function mediaFactory (data) {
         <h2 class="media-name">${title}</h2>
         <p class="media-like">
           ${likes}
-          <i class="media-like-btn fa-solid fa-heart" aria-label="likes"></i>
+          <i class="media-like-icon fa-solid fa-heart" aria-label="likes"></i>
         </p>
       </div>
         `
@@ -29,12 +38,12 @@ function mediaFactory (data) {
           <h2 class="media-name">${title}</h2>
           <p class="media-like">
             ${likes}
-            <i class="media-like-btn fa-solid fa-heart" aria-label="likes"></i>
+            <i class="media-like-icon fa-solid fa-heart" aria-label="likes"></i>
           </p>
         </div>
         `
     }
     return article
   }
-  return { getMediaItemDOM }
+  return { getMediaItemDOM, getAllLikesDom }
 }

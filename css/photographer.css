@@ -135,9 +135,11 @@
 
 .media-like {
     font-size: 16px;
+    cursor: pointer;
 }
-.media-
-
+.icon_liked {
+    color: #db2e2e;
+}  
 .contact_button {
     font-size: 20px;
     font-weight: bold;
@@ -162,6 +164,21 @@
     background: #db8876;
     border-radius: 5px;
     z-index: 100;
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+}
+
+.photograph-all-likes {
+    font-weight: 500;
+    font-size: 24px;
+    margin-left: 30px;
+}
+
+.photograph-price {
+    font-weight: 500;
+    font-size: 24px;
+    margin-right: 30px;
 }
 
 /* Modal */

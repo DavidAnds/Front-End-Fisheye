@@ -1,32 +1,9 @@
-// Pour récuperrez la page
+// Pour récuperrez l'URL dans params page
 const url = (new URL(document.location)).searchParams
 const id = url.get('id')
 
-// Filter
-const popularFilter = document.querySelector('.filter-btn_popular')
-const dateFilter = document.querySelector('.filter-btn_date')
-const titleFilter = document.querySelector('.filter-btn_title')
-const dropdownFilter = document.querySelector('.filter-btn_dropdown')
-
-// Ouvre le dropdown qui fais apparaitre tous les boutons du filtre
-dropdownFilter.addEventListener('click', () => {
-  dropdownFilter.classList.toggle('filter-btn_dropdown-show')
-})
-
-// Quand on clique sur un bouton du filtre, il y a rechargement de toutes les medias trié en fonction du  filtre
-popularFilter.addEventListener('click', () => {
-  initMedia('popular')
-  dropdownFilter.innerHTML = 'Popularité <i class="filter-chevron fa-solid fa-chevron-down"></i>'
-})
-dateFilter.addEventListener('click', () => {
-  initMedia('date')
-  dropdownFilter.innerHTML = 'Date <i class="filter-chevron fa-solid fa-chevron-down"></i>'
-})
-titleFilter.addEventListener('click', () => {
-  initMedia('title')
-  dropdownFilter.innerHTML = 'Titre <i class="filter-chevron fa-solid fa-chevron-down"></i>'
-})
-
+// *********************************************************
+// ********************** Récupérration des données
 // Mettre le code JavaScript lié à la page photographer.html
 async function getPhotographerById (id) {
   try {
@@ -56,14 +33,19 @@ async function getMedia (id) {
   }
 }
 
+// *************************************************************
+// ***************************** Display
 // Fonction qui met en place le profil du photographe dans le DOM
 async function displayHeader (photographer) {
   const photographHeader = document.querySelector('.photograph-header')
   const photographModel = photographerFactory(photographer)
+  const photographPriceBox = document.querySelector('.photograph-price-box')
   const photographIntro = photographModel.getPhotographIntroDOM()
   const photographPic = photographModel.getPhotographPictureDOM()
+  const photographPrice = photographModel.getPriceParagraphDOM()
   photographHeader.appendChild(photographIntro)
   photographHeader.appendChild(photographPic)
+  photographPriceBox.appendChild(photographPrice)
 }
 
 // function qui met en place les media dans le DOM
@@ -81,12 +63,31 @@ async function displayMedia (medias) {
   })
 }
 
-// Récupere les données du photographe et les mets dans le DOM
-async function initPhotograph () {
-  const { photographer } = await getPhotographerById(id)
+// **********************************************
+// ******************  Filter
+const popularFilter = document.querySelector('.filter-btn_popular')
+const dateFilter = document.querySelector('.filter-btn_date')
+const titleFilter = document.querySelector('.filter-btn_title')
+const dropdownFilter = document.querySelector('.filter-btn_dropdown')
 
-  displayHeader(photographer)
-}
+// Ouvre le dropdown qui fais apparaitre tous les boutons du filtre
+dropdownFilter.addEventListener('click', () => {
+  dropdownFilter.classList.toggle('filter-btn_dropdown-show')
+})
+
+// Quand on clique sur un bouton du filtre, il y a rechargement de toutes les medias trié en fonction du  filtre
+popularFilter.addEventListener('click', () => {
+  initMedia('popular')
+  dropdownFilter.innerHTML = 'Popularité <i class="filter-chevron fa-solid fa-chevron-down"></i>'
+})
+dateFilter.addEventListener('click', () => {
+  initMedia('date')
+  dropdownFilter.innerHTML = 'Date <i class="filter-chevron fa-solid fa-chevron-down"></i>'
+})
+titleFilter.addEventListener('click', () => {
+  initMedia('title')
+  dropdownFilter.innerHTML = 'Titre <i class="filter-chevron fa-solid fa-chevron-down"></i>'
+})
 
 // function qui trie les medias
 function sortMedias (medias, filter) {
@@ -101,17 +102,77 @@ function sortMedias (medias, filter) {
     case 'title':
       mediasSort = medias.sort((a, b) => a.title.localeCompare(b.title))
       break
-    default: mediasSort = medias
+    default: mediasSort = medias.sort((a, b) => b.likes - a.likes)
   }
 
   return mediasSort
 }
 
+// ****************************************************
+// *************************** LIKE
+// Comportement lorsque que on like un des medias
+function handleMediaLike (btn, media) {
+  // Quand le media est deja liker: on le dislike
+  if (media.liked) {
+    media.likes -= 1
+    media.liked = false
+    refreshLike(btn, media)
+  } else {
+    // Sinon on le like
+    media.likes += 1
+    media.liked = true
+    refreshLike(btn, media)
+  }
+}
+
+// Rafrachis la valeur like du media sur le DOM
+function refreshLike (btn, media) {
+  btn.innerHTML = `<p class="media-like"> 
+    ${media.likes}
+    <i 
+     class="media-like-icon ${media.liked ? 'icon_liked' : ''} fa-solid fa-heart"
+     aria-label="likes
+    ">
+    </i>
+  </p>`
+}
+
+// Fonction qui afffiche le nombre like au chargement de la page
+function displayAllLikes (medias) {
+  let allLikes = 0
+  const allLikesBox = document.querySelector('.photograph-likes-box')
+  medias.forEach(media => { allLikes += media.likes })
+  if (allLikesBox.hasChildNodes()) {
+    allLikesBox.innerHTML = ''
+  }
+  const mediaModel = mediaFactory('', allLikes)
+  const allLikesParagraph = mediaModel.getAllLikesDom()
+  allLikesBox.appendChild(allLikesParagraph)
+}
+
+// *****************************************************
+// ********************** INITIALISATION
 async function initMedia (filter) {
   const { medias } = await getMedia(id)
   const mediasSort = sortMedias(medias, filter)
   displayMedia(mediasSort)
+  displayAllLikes(mediasSort)
+
+  // Comportement lorsque on appuie sur le bouton like
+  const likeBtns = document.querySelectorAll('.media-like')
+  likeBtns.forEach((btn, index) => {
+    btn.addEventListener('click', () => {
+      handleMediaLike(btn, mediasSort[index])
+      displayAllLikes(mediasSort)
+    })
+  })
 }
 
-initMedia('popular')
+// Récupere les données du photographe et les affiche dans le DOM
+async function initPhotograph () {
+  const { photographer } = await getPhotographerById(id)
+  displayHeader(photographer)
+}
+
+initMedia()
 initPhotograph()
