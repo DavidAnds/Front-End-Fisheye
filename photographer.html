@@ -1,14 +1,17 @@
 <!DOCTYPE html>
 <html>
     <head>
-        <link href="css/style.css" rel="stylesheet" type="text/css" >
-        <meta charset="utf-8" >
-        <link rel="icon" type="image/png" href="assets/favicon.png" >
+        <link href="css/style.css" rel="stylesheet" type="text/css" />
+        <meta charset="utf-8" />
+        <link rel="icon" type="image/png" href="assets/favicon.png" />
         <link
             href="https://fonts.googleapis.com/css?family=DM+Sans&display=swap"
             rel="stylesheet"
-        >
-        <script src="https://kit.fontawesome.com/59d9bb69c9.js" crossorigin="anonymous"></script>
+        />
+        <script
+            src="https://kit.fontawesome.com/59d9bb69c9.js"
+            crossorigin="anonymous"
+        ></script>
         <title>Fisheye - photographe</title>
     </head>
     <body>
@@ -18,7 +21,7 @@
                     src="assets/images/logo.png"
                     class="logo"
                     alt="Fisheye Home page"
-            ></a>
+            /></a>
         </header>
         <main id="main">
             <div class="photograph-header">
@@ -26,23 +29,42 @@
                     Contactez-moi
                 </button>
             </div>
-            <div class="photograph-filter filter">
-              <p class="filter-text">Trier par</p>
-              <select name="" id=""></select>
-
-            </div>
-            <section class="photograph-medias">
-              <article class="media-item">
-                <img src="" alt="" class="media-img">
-                <div class="media-text-container">
-                  <h2 class="media-name"></h2>
-                  <p class="media-like">
-                    <i class="fa-solid fa-heart"></i>
-                  </p>
+            <div class="photograph-filter">
+                <label class="filter-label">Trier par</label>
+                <div class="filter">
+                    <button
+                        class="filter-btn filter-btn_dropdown"
+                        role="button"
+                        aria-haspopup="listbox"
+                    >
+                        Popularité
+                        <i class="filter-chevron fa-solid fa-chevron-down"></i>
+                    </button>
+                    <button
+                        aria-expanded="true"
+                        aria-label="Order by popularity"
+                        class="filter-btn filter-btn_popular"
+                    >
+                        Popularité
+                    </button>
+                    <button
+                        aria-expanded="true"
+                        aria-label="Order by date"
+                        class="filter-btn filter-btn_date"
+                    >
+                        Date
+                    </button>
+                    <button
+                        aria-expanded="true"
+                        aria-label="Order by title"
+                        class="filter-btn filter-btn_title"
+                    >
+                        Titre
+                    </button>
                 </div>
-              </article>
-
-            </section>
+            </div>
+            <section class="photograph-medias"></section>
+            <div class="photograph-fixed-box"></div>
         </main>
         <div id="contact_modal">
             <div class="modal">
@@ -55,7 +77,9 @@
                         <label>Prénom</label>
                         <input />
                     </div>
-                    <button class="contact_button" aria-label="Contact Me">Envoyer</button>
+                    <button class="contact_button" aria-label="Contact Me">
+                        Envoyer
+                    </button>
                 </form>
             </div>
         </div>

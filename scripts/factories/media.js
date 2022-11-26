@@ -8,12 +8,13 @@ function mediaFactory (data) {
     article.className = 'media-item'
     if (video) {
       article.innerHTML = `
-      <img src="${routes + video}" alt="" class="media-img">
+      <video src="${routes + video}" alt="" class="media-img">
+      </video>
       <div class="media-text-container">
         <h2 class="media-name">${title}</h2>
         <p class="media-like">
           ${likes}
-          <i class="fa-solid fa-heart"></i>
+          <i class="media-like-btn fa-solid fa-heart" aria-label="likes"></i>
         </p>
       </div>
         `
@@ -21,12 +22,14 @@ function mediaFactory (data) {
 
     if (image) {
       article.innerHTML = `
-        <img src="${routes + image}" alt="" class="media-img">
+        <a href="#" class="media-img-link" aria-label="${title}, closeup view">
+          <img src="${routes + image}" alt="" class="media-img">
+        </a>
         <div class="media-text-container">
           <h2 class="media-name">${title}</h2>
           <p class="media-like">
             ${likes}
-            <i class="fa-solid fa-heart"></i>
+            <i class="media-like-btn fa-solid fa-heart" aria-label="likes"></i>
           </p>
         </div>
         `

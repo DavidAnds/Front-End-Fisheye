@@ -1,3 +1,4 @@
+// fonction qui récuppere les données des photographes
 async function getPhotographers () {
   try {
     // Penser à remplacer par les données récupérées dans le json
@@ -11,6 +12,7 @@ async function getPhotographers () {
   }
 }
 
+//  Fonction qui affiche sur le DOM les photographes
 async function displayData (photographers) {
   const photographersSection = document.querySelector('.photographer_section')
 

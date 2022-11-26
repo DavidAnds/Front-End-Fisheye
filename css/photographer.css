@@ -2,6 +2,7 @@
     display: none;
 }
 
+/* Photograph Header */
 .photograph-header {
     height: 300px;
     margin: 0 100px;
@@ -40,6 +41,103 @@
     justify-self: flex-end;
 }
 
+/* Photograph Filter */
+.photograph-filter {
+    margin-left: 100px;
+    position: relative;
+}
+
+.filter-label {
+    font-weight: 700;
+    font-size: 18px;
+}
+
+.filter {
+    position: absolute;
+    top: -10px;
+    left: 100px;
+    border: none;
+    background: #911c1c;
+    border-radius: 5px;
+    width: 170px;
+    padding: 0 10px;
+    border-radius: 5px;
+    overflow: hidden;
+    z-index: 2;
+}
+
+.filter-btn {
+    color: #fff;
+    font-size: 18px;
+    font-weight: 700;
+    padding: 23px 20px;
+    display: block;
+    width: 100%;
+    border: none;
+    background: none;
+    text-align: start;
+    cursor: pointer;
+}
+
+.filter-btn_dropdown {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+}
+
+.filter-btn:not(:first-child){
+    border-top: 1px solid #fff;
+}
+
+.filter-btn_date,
+.filter-btn_title,
+.filter-btn_popular {
+    display: none;
+}
+
+.filter-btn_dropdown-show ~ .filter-btn_date,
+.filter-btn_dropdown-show ~ .filter-btn_title,
+.filter-btn_dropdown-show ~ .filter-btn_popular {
+    display: block;
+}
+
+.filter-btn_dropdown-show .filter-chevron {
+    transform: rotate(180deg);
+}
+
+/* Photograph Medias */
+.photograph-medias {
+    display: grid;
+    grid-template-columns: repeat(3, 1fr);
+    row-gap: 30px;
+    justify-items: center;
+    margin-bottom: 50px;
+    margin-top: 100px;
+}
+
+.media-img {
+    width: 350px;
+    height: 300px;
+    border-radius: 5px;
+    object-fit: cover;
+}
+.media-text-container {
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    margin-top: 10px;
+    width: 350px;
+    color: #911c1c;
+}
+.media-name {
+    font-size: 24px;
+}
+
+.media-like {
+    font-size: 16px;
+}
+.media-
+
 .contact_button {
     font-size: 20px;
     font-weight: bold;
@@ -52,9 +150,21 @@
     border-radius: 5px;
     cursor: pointer;
     order: 1;
-    justify-self: center    ;
+    justify-self: center;
+}
+/* fixed-box */
+.photograph-fixed-box {
+    position: fixed;
+    bottom: 0;
+    right: 20px;
+    height: 90px;
+    width: 376px;
+    background: #db8876;
+    border-radius: 5px;
+    z-index: 100;
 }
 
+/* Modal */
 .modal {
     border-radius: 5px;
     background-color: #db8876;
