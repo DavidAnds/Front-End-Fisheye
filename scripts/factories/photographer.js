@@ -3,6 +3,11 @@ function photographerFactory (data) {
 
   const picture = `assets/photographers/${portrait}`
 
+  function getModalTitleText () {
+    const text = `Contactez-moi <br> ${name}`
+
+    return text
+  }
   // Creation de un paragraph price dans le dom
   function getPriceParagraphDOM () {
     const p = document.createElement('p')
@@ -53,5 +58,5 @@ function photographerFactory (data) {
     return img
   }
 
-  return { name, picture, getUserCardDOM, getPhotographIntroDOM, getPhotographPictureDOM, getPriceParagraphDOM }
+  return { name, picture, getUserCardDOM, getPhotographIntroDOM, getPhotographPictureDOM, getPriceParagraphDOM, getModalTitleText }
 }

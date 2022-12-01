@@ -65,24 +65,52 @@
             </div>
             <section class="photograph-medias"></section>
             <div class="photograph-fixed-box">
-                <div class="photograph-likes-box">
-
-                </div>
-                <div class="photograph-price-box">
-                    
-                </div>
+                <div class="photograph-likes-box"></div>
+                <div class="photograph-price-box"></div>
             </div>
         </main>
         <div id="contact_modal">
             <div class="modal">
                 <header>
-                    <h2>Contactez-moi</h2>
+                    <h2 class="modal_title">Contactez-moi</h2>
                     <img src="assets/icons/close.svg" onclick="closeModal()" />
                 </header>
                 <form>
                     <div>
-                        <label>Prénom</label>
-                        <input />
+                        <label class="contact_label" for="first">Prénom</label>
+                        <input
+                            class="contact_input"
+                            type="text"
+                            name="first"
+                            id="first"
+                        />
+                    </div>
+                    <div>
+                        <label class="contact_label" for="last">Nom</label>
+                        <input
+                            class="contact_input"
+                            type="text"
+                            name="last"
+                            id="last"
+                        />
+                    </div>
+                    <div>
+                        <label class="contact_label" for="email">Email</label>
+                        <input
+                            class="contact_input"
+                            type="email"
+                            name="email"
+                            id="email"
+                        />
+                    </div>
+                    <div>
+                        <label class="contact_label" for="message">Votre message</label>
+                        <textarea
+                            class="contact_input contact_textarea"
+                            name="meessage"
+                            id="message"
+                        >
+                        </textarea>
                     </div>
                     <button class="contact_button" aria-label="Contact Me">
                         Envoyer

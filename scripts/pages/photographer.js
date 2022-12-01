@@ -36,16 +36,19 @@ async function getMedia (id) {
 // *************************************************************
 // ***************************** Display
 // Fonction qui met en place le profil du photographe dans le DOM
-async function displayHeader (photographer) {
+async function displayPhotographer (photographer) {
   const photographHeader = document.querySelector('.photograph-header')
   const photographModel = photographerFactory(photographer)
   const photographPriceBox = document.querySelector('.photograph-price-box')
+  const modalTitle = document.querySelector('.modal_title')
   const photographIntro = photographModel.getPhotographIntroDOM()
   const photographPic = photographModel.getPhotographPictureDOM()
   const photographPrice = photographModel.getPriceParagraphDOM()
+  const modalText = photographModel.getModalTitleText()
   photographHeader.appendChild(photographIntro)
   photographHeader.appendChild(photographPic)
   photographPriceBox.appendChild(photographPrice)
+  modalTitle.innerHTML = modalText
 }
 
 // function qui met en place les media dans le DOM
@@ -171,7 +174,7 @@ async function initMedia (filter) {
 // Récupere les données du photographe et les affiche dans le DOM
 async function initPhotograph () {
   const { photographer } = await getPhotographerById(id)
-  displayHeader(photographer)
+  displayPhotographer(photographer)
 }
 
 initMedia()
