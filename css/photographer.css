@@ -188,6 +188,7 @@
     left: 0;
     right: 0;
     z-index: 10;
+    display: none;
 }
 
 .modal {
@@ -272,9 +273,19 @@ form div {
     .photograph-filter {
         margin-left: 10px;
     }
+
+    .photograph-fixed-box {
+        right: 20px;
+        height: 60px;
+        width: 340px;
+    }
 }
 
 @media screen and  (max-width: 768px) {
+    .photograph-header {
+        height: 200px;
+        margin-top: 0;
+    }
     .photograph-name {
         font-size: 44px;
         color: #d3573c;
@@ -301,8 +312,29 @@ form div {
     .media-text-container {
         width: 250px;
     }
+    .media-name {
+        font-size: 20px;
+    }
 
     .filter-btn {
         padding: 10px 20px;
+    }
+
+    .photograph-medias {
+        margin-top: 60px;
+    }
+
+    .photograph-fixed-box {
+        right: 40px;
+        height: 50px;
+        width: 260px;
+    }
+
+    .photograph-all-likes {
+        font-size: 18px;
+    }
+    
+    .photograph-price {
+        font-size: 18px;
     }
 }
