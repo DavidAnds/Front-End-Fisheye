@@ -17,8 +17,10 @@ function mediaFactory (data, allLikes) {
     article.className = 'media-item'
     if (video) {
       article.innerHTML = `
-      <video src="${routes + video}" alt="" class="media-img">
-      </video>
+      <a href="#" class="media-link" aria-label="${title}, closeup view">
+        <video src="${routes + video}" alt="" class="media-img">
+        </video>
+      </a>
       <div class="media-text-container">
         <h2 class="media-name">${title}</h2>
         <p class="media-like">
@@ -31,7 +33,7 @@ function mediaFactory (data, allLikes) {
 
     if (image) {
       article.innerHTML = `
-        <a href="#" class="media-img-link" aria-label="${title}, closeup view">
+        <a href="#" class="media-link" aria-label="${title}, closeup view">
           <img src="${routes + image}" alt="" class="media-img">
         </a>
         <div class="media-text-container">
@@ -45,5 +47,25 @@ function mediaFactory (data, allLikes) {
     }
     return article
   }
-  return { getMediaItemDOM, getAllLikesDom }
+
+  function getMediaInLightboxDOM () {
+    const article = document.createElement('article')
+    article.className = 'lightbox-article'
+    if (video) {
+      article.innerHTML = `
+      <video src="${routes + video}" alt="" class="lightbox-media">
+      </video>
+      <h2 class="lightbox-title"> ${title}</h2>
+      `
+    }
+    if (image) {
+      article.innerHTML = `
+      <img src="${routes + image}" alt="" class="lightbox-media">
+      <h2 class="lightbox-title"> ${title}</h2>
+      `
+    }
+    return article
+  }
+
+  return { getMediaItemDOM, getAllLikesDom, getMediaInLightboxDOM }
 }

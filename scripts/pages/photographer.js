@@ -153,6 +153,29 @@ function displayAllLikes (medias) {
   allLikesBox.appendChild(allLikesParagraph)
 }
 
+// ****************************************************
+// *************************** LIGHTBOX
+const prevBtn = document.querySelector('.lightbox-arrow_prev')
+const nextBtn = document.querySelector('.lightbox-arrow_next')
+const closeLightboxBtn = document.querySelector('.lightbox-close')
+const lightboxBg = document.querySelector('.lightbox-bg')
+
+closeLightboxBtn.addEventListener('click', () => {
+  lightboxBg.style.display = 'none'
+})
+
+function displayMediaInLightbox (media) {
+  const lightbox = document.querySelector('.lightbox-item')
+  const mediaModel = mediaFactory(media)
+  const mediaLight = mediaModel.getMediaInLightboxDOM()
+
+  if (lightbox.hasChildNodes) {
+    lightbox.innerHTML = ''
+  }
+
+  lightbox.appendChild(mediaLight)
+}
+
 // *****************************************************
 // ********************** INITIALISATION
 async function initMedia (filter) {
@@ -168,6 +191,39 @@ async function initMedia (filter) {
       handleMediaLike(btn, mediasSort[index])
       displayAllLikes(mediasSort)
     })
+  })
+
+  // LightBox
+  let lightboxIndex = 0
+
+  // Comportement quand on click sur les mediaLinks
+  const mediaLinks = document.querySelectorAll('.media-link')
+  mediaLinks.forEach((link, index) => {
+    link.addEventListener('click', () => {
+      lightboxIndex = index
+      displayMediaInLightbox(mediasSort[lightboxIndex])
+      lightboxBg.style.display = 'block'
+    })
+  })
+
+  // Au click on fais apparaitre le media précendent
+  prevBtn.addEventListener('click', () => {
+    if (lightboxIndex > 0) {
+      lightboxIndex -= 1
+    } else {
+      lightboxIndex = mediasSort.length - 1
+    }
+    displayMediaInLightbox(mediasSort[lightboxIndex])
+  })
+
+  // Au click on fais apparaitre le media suivant
+  nextBtn.addEventListener('click', () => {
+    if (lightboxIndex < mediasSort.length - 1) {
+      lightboxIndex -= 1
+    } else {
+      lightboxIndex = 0
+    }
+    displayMediaInLightbox(mediasSort[lightboxIndex])
   })
 }
 
