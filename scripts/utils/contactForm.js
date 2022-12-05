@@ -4,7 +4,6 @@ const emailInput = document.getElementById('email')
 const messageInput = document.getElementById('message')
 const form = document.querySelector('form')
 
-
 function displayModal() {
   const modal = document.getElementById("contact_modal")
   modal.style.display = "block"

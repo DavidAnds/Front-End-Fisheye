@@ -25,37 +25,94 @@
         </header>
         <main id="main">
             <div class="photograph-header">
-                <button class="contact_button" onclick="displayModal()">
+                <button class="contact_button" onclick="displayModal()" aria-label="Contact Me">
                     Contactez-moi
                 </button>
             </div>
+            <div id="contact_modal">
+                <div class="modal">
+                    <header>
+                        <h2 class="modal_title">Contactez-moi</h2>
+                        <button class='modal_close' onclick="closeModal()">
+                            <img src="assets/icons/close.svg"  />
+                        </button>
+                    </header>
+                    <form>
+                        <div>
+                            <label class="contact_label" for="first">Prénom</label>
+                            <input
+                                class="contact_input"
+                                type="text"
+                                name="first"
+                                id="first"
+                            />
+                        </div>
+                        <div>
+                            <label class="contact_label" for="last">Nom</label>
+                            <input
+                                class="contact_input"
+                                type="text"
+                                name="last"
+                                id="last"
+                            />
+                        </div>
+                        <div>
+                            <label class="contact_label" for="email">Email</label>
+                            <input
+                                class="contact_input"
+                                type="email"
+                                name="email"
+                                id="email"
+                            />
+                        </div>
+                        <div>
+                            <label class="contact_label" for="message">Votre message</label>
+                            <textarea
+                                class="contact_input contact_textarea"
+                                name="meessage"
+                                id="message"
+                            >
+                            </textarea>
+                        </div>
+                        <button class="contact_button" aria-label="Contact Me">
+                            Envoyer
+                        </button>
+                    </form>
+                </div>
+            </div>
             <div class="photograph-filter">
-                <label class="filter-label">Trier par</label>
+                <label class="filter-label" id="filter">Trier par</label>
                 <div class="filter">
                     <button
                         class="filter-btn filter-btn_dropdown"
-                        role="button"
                         aria-haspopup="listbox"
+                        aria-expanded="false"
                     >
                         Popularité
                         <i class="filter-chevron fa-solid fa-chevron-down"></i>
                     </button>
                     <button
-                        aria-expanded="true"
+                        role="listbox"
+                        aria-selected="false"
+                        aria-labelledby="filter"
                         aria-label="Order by popularity"
                         class="filter-btn filter-btn_popular"
                     >
                         Popularité
                     </button>
                     <button
-                        aria-expanded="true"
+                        role="listbox"
+                        aria-selected="false"
+                        aria-labelledby="filter"
                         aria-label="Order by date"
                         class="filter-btn filter-btn_date"
                     >
                         Date
                     </button>
                     <button
-                        aria-expanded="true"
+                        role="listbox"
+                        aria-selected="false"
+                        aria-labelledby="filter"
                         aria-label="Order by title"
                         class="filter-btn filter-btn_title"
                     >
@@ -70,7 +127,7 @@
             </div>
         </main>
         <div class="lightbox-bg">
-            <div class="lightbox" aria-label="image closeup view">
+            <div class="lightbox" aria-label="image closeup view" >
                 <button class="lightbox-close" aria-label="close dialog">
                     <i class="fa-solid fa-close"></i>
                 </button>
@@ -83,55 +140,6 @@
                 <div class="lightbox-item">
 
                 </div>
-            </div>
-        </div>
-        <div id="contact_modal">
-            <div class="modal">
-                <header>
-                    <h2 class="modal_title">Contactez-moi</h2>
-                    <img src="assets/icons/close.svg" onclick="closeModal()" />
-                </header>
-                <form>
-                    <div>
-                        <label class="contact_label" for="first">Prénom</label>
-                        <input
-                            class="contact_input"
-                            type="text"
-                            name="first"
-                            id="first"
-                        />
-                    </div>
-                    <div>
-                        <label class="contact_label" for="last">Nom</label>
-                        <input
-                            class="contact_input"
-                            type="text"
-                            name="last"
-                            id="last"
-                        />
-                    </div>
-                    <div>
-                        <label class="contact_label" for="email">Email</label>
-                        <input
-                            class="contact_input"
-                            type="email"
-                            name="email"
-                            id="email"
-                        />
-                    </div>
-                    <div>
-                        <label class="contact_label" for="message">Votre message</label>
-                        <textarea
-                            class="contact_input contact_textarea"
-                            name="meessage"
-                            id="message"
-                        >
-                        </textarea>
-                    </div>
-                    <button class="contact_button" aria-label="Contact Me">
-                        Envoyer
-                    </button>
-                </form>
             </div>
         </div>
         <script src="/scripts/factories/media.js"></script>

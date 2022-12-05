@@ -198,8 +198,11 @@
 .lightbox {
     position: relative;
     width: 90%;
+    margin: 0 auto;
     max-width: 1300px;
     height: 80%;
+    background: none;
+    border: none;
 }
 
 .lightbox-close {
@@ -270,7 +273,11 @@
     justify-content: space-between;
     padding: 35px;
     margin: auto;
-    margin-top: 2vh;
+    margin-top: .5vh;
+}
+.modal_close {
+    background: none;
+    border: none;
 }
 
 .modal header {
@@ -288,7 +295,7 @@
 }
 
 form {
-    margin-top: 20px;
+    margin-top: 0px;
     display: flex;
     width: 100%;
     flex-direction: column;
@@ -355,7 +362,7 @@ form div {
 
 @media screen and (max-width: 768px) {
     .photograph-header {
-        height: 200px;
+        height: 250px;
         margin-top: 0;
     }
     .photograph-name {

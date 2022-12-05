@@ -74,8 +74,16 @@ const titleFilter = document.querySelector('.filter-btn_title')
 const dropdownFilter = document.querySelector('.filter-btn_dropdown')
 
 // Ouvre le dropdown qui fais apparaitre tous les boutons du filtre
+let dropdown = false
 dropdownFilter.addEventListener('click', () => {
   dropdownFilter.classList.toggle('filter-btn_dropdown-show')
+  if (!dropdown) {
+    dropdown = true
+    dropdownFilter.setAttribute('aria-expanded', dropdown)
+  } else {
+    dropdown = false
+    dropdownFilter.setAttribute('aria-expanded', dropdown)
+  }
 })
 
 // Quand on clique sur un bouton du filtre, il y a rechargement de toutes les medias trié en fonction du  filtre
@@ -162,6 +170,7 @@ const lightboxBg = document.querySelector('.lightbox-bg')
 
 closeLightboxBtn.addEventListener('click', () => {
   lightboxBg.style.display = 'none'
+  lightboxBg.setAttribute('open', false)
 })
 
 function displayMediaInLightbox (media) {
@@ -192,7 +201,6 @@ async function initMedia (filter) {
       displayAllLikes(mediasSort)
     })
   })
-
   // LightBox
   let lightboxIndex = 0
 
@@ -203,6 +211,7 @@ async function initMedia (filter) {
       lightboxIndex = index
       displayMediaInLightbox(mediasSort[lightboxIndex])
       lightboxBg.style.display = 'block'
+      lightboxBg.setAttribute('open')
     })
   })
 
@@ -219,11 +228,31 @@ async function initMedia (filter) {
   // Au click on fais apparaitre le media suivant
   nextBtn.addEventListener('click', () => {
     if (lightboxIndex < mediasSort.length - 1) {
-      lightboxIndex -= 1
+      lightboxIndex += 1
     } else {
       lightboxIndex = 0
     }
     displayMediaInLightbox(mediasSort[lightboxIndex])
+  })
+
+  document.addEventListener('keyup', function (event) {
+    if (event.code === 'ArrowLeft') {
+      if (lightboxIndex > 0) {
+        lightboxIndex -= 1
+      } else {
+        lightboxIndex = mediasSort.length - 1
+      }
+      displayMediaInLightbox(mediasSort[lightboxIndex])
+    }
+
+    if (event.code === 'ArrowRight') {
+      if (lightboxIndex < mediasSort.length - 1) {
+        lightboxIndex += 1
+      } else {
+        lightboxIndex = 0
+      }
+      displayMediaInLightbox(mediasSort[lightboxIndex])
+    }
   })
 }
 

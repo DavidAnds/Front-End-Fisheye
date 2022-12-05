@@ -36,7 +36,7 @@ function photographerFactory (data) {
   function getPhotographIntroDOM () {
     const div = document.createElement('div')
     div.innerHTML = `
-    <h1 class="photograph-name">
+    <h1 class="photograph-name" id="name">
       ${name}
     </h1>
     <p class="photograph-location">
@@ -54,6 +54,7 @@ function photographerFactory (data) {
   function getPhotographPictureDOM () {
     const img = document.createElement('img')
     img.setAttribute('src', picture)
+    img.setAttribute('alt', name)
     img.className = 'photograph-pic'
     return img
   }
