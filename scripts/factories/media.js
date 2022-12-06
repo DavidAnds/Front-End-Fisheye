@@ -54,8 +54,8 @@ function mediaFactory (data, allLikes) {
     article.className = 'lightbox-article'
     if (video) {
       article.innerHTML = `
-      <video alt=${title} controls class="lightbox-media">
-        <source src='${routes + video}' type="video/mp4"
+      <video alt='${title}' controls autoplay class="lightbox-media">
+        <source src='${routes + video}' type="video/mp4">
       </video>
       <h2 class="lightbox-title"> ${title}</h2>
       `

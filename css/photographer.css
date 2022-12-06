@@ -50,6 +50,13 @@
     cursor: pointer;
     order: 1;
     justify-self: center;
+    transition: all .2s;
+}
+
+.contact_button:hover,
+.contact_button:focus {
+    background: #DB8876;
+    color: #000;
 }
 
 /* Photograph Filter */
@@ -81,9 +88,9 @@
     color: #fff;
     font-size: 18px;
     font-weight: 700;
-    padding: 23px 20px;
+    padding: 20px 10px;
     display: block;
-    width: 100%;
+    width: 90%;
     border: none;
     background: none;
     text-align: start;
@@ -238,6 +245,7 @@
 /* Modal */
 #contact_modal {
     background-color: rgba(196, 196, 196, 0.4);
+    overflow-y: scroll;
 }
 
 .lightbox-item {
@@ -274,6 +282,7 @@
     padding: 35px;
     margin: auto;
     margin-top: .5vh;
+    margin-bottom: .5vh;
 }
 .modal_close {
     background: none;
@@ -290,12 +299,13 @@
 }
 
 .modal header h2 {
+
     font-size: 60px;
     font-weight: normal;
 }
 
 form {
-    margin-top: 0px;
+    margin-top: 20px;
     display: flex;
     width: 100%;
     flex-direction: column;

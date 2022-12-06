@@ -40,14 +40,17 @@ async function displayPhotographer (photographer) {
   const photographHeader = document.querySelector('.photograph-header')
   const photographModel = photographerFactory(photographer)
   const photographPriceBox = document.querySelector('.photograph-price-box')
+  const contact = document.querySelector('#contact_modal')
   const modalTitle = document.querySelector('.modal_title')
   const photographIntro = photographModel.getPhotographIntroDOM()
   const photographPic = photographModel.getPhotographPictureDOM()
   const photographPrice = photographModel.getPriceParagraphDOM()
   const modalText = photographModel.getModalTitleText()
+  const modalAria = photographModel.getModalAriaLabel()
   photographHeader.appendChild(photographIntro)
   photographHeader.appendChild(photographPic)
   photographPriceBox.appendChild(photographPrice)
+  contact.setAttribute('aria-label', modalAria)
   modalTitle.innerHTML = modalText
 }
 
@@ -170,7 +173,6 @@ const lightboxBg = document.querySelector('.lightbox-bg')
 
 closeLightboxBtn.addEventListener('click', () => {
   lightboxBg.style.display = 'none'
-  lightboxBg.setAttribute('open', false)
 })
 
 function displayMediaInLightbox (media) {
@@ -211,7 +213,6 @@ async function initMedia (filter) {
       lightboxIndex = index
       displayMediaInLightbox(mediasSort[lightboxIndex])
       lightboxBg.style.display = 'block'
-      lightboxBg.setAttribute('open')
     })
   })
 

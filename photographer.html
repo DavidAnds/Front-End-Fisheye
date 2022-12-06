@@ -1,13 +1,13 @@
 <!DOCTYPE html>
 <html>
     <head>
-        <link href="css/style.css" rel="stylesheet" type="text/css" />
-        <meta charset="utf-8" />
-        <link rel="icon" type="image/png" href="assets/favicon.png" />
+        <link href="css/style.css" rel="stylesheet" type="text/css" >
+        <meta charset="utf-8" >
+        <link rel="icon" type="image/png" href="assets/favicon.png" >
         <link
             href="https://fonts.googleapis.com/css?family=DM+Sans&display=swap"
             rel="stylesheet"
-        />
+        >
         <script
             src="https://kit.fontawesome.com/59d9bb69c9.js"
             crossorigin="anonymous"
@@ -29,12 +29,12 @@
                     Contactez-moi
                 </button>
             </div>
-            <div id="contact_modal">
+            <div id="contact_modal" aria-labelledby="name">
                 <div class="modal">
                     <header>
                         <h2 class="modal_title">Contactez-moi</h2>
-                        <button class='modal_close' onclick="closeModal()">
-                            <img src="assets/icons/close.svg"  />
+                        <button class='modal_close' onclick="closeModal()" aria-label="Close contact form">
+                            <img src="assets/icons/close.svg"  >
                         </button>
                     </header>
                     <form>
@@ -45,7 +45,7 @@
                                 type="text"
                                 name="first"
                                 id="first"
-                            />
+                            >
                         </div>
                         <div>
                             <label class="contact_label" for="last">Nom</label>
@@ -54,7 +54,7 @@
                                 type="text"
                                 name="last"
                                 id="last"
-                            />
+                            >
                         </div>
                         <div>
                             <label class="contact_label" for="email">Email</label>
@@ -63,7 +63,7 @@
                                 type="email"
                                 name="email"
                                 id="email"
-                            />
+                            >
                         </div>
                         <div>
                             <label class="contact_label" for="message">Votre message</label>
@@ -74,7 +74,7 @@
                             >
                             </textarea>
                         </div>
-                        <button class="contact_button" aria-label="Contact Me">
+                        <button class="contact_button" aria-label="Send">
                             Envoyer
                         </button>
                     </form>
@@ -83,15 +83,16 @@
             <div class="photograph-filter">
                 <label class="filter-label" id="filter">Trier par</label>
                 <div class="filter">
-                    <button
+                    <div
+                        role="button"
                         class="filter-btn filter-btn_dropdown"
                         aria-haspopup="listbox"
                         aria-expanded="false"
                     >
                         Popularité
                         <i class="filter-chevron fa-solid fa-chevron-down"></i>
-                    </button>
-                    <button
+                    </div>
+                    <div
                         role="listbox"
                         aria-selected="false"
                         aria-labelledby="filter"
@@ -99,8 +100,8 @@
                         class="filter-btn filter-btn_popular"
                     >
                         Popularité
-                    </button>
-                    <button
+                    </div>
+                    <div
                         role="listbox"
                         aria-selected="false"
                         aria-labelledby="filter"
@@ -108,8 +109,8 @@
                         class="filter-btn filter-btn_date"
                     >
                         Date
-                    </button>
-                    <button
+                    </div>
+                    <div
                         role="listbox"
                         aria-selected="false"
                         aria-labelledby="filter"
@@ -117,7 +118,7 @@
                         class="filter-btn filter-btn_title"
                     >
                         Titre
-                    </button>
+                    </div>
                 </div>
             </div>
             <section class="photograph-medias"></section>

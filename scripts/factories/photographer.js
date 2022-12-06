@@ -8,6 +8,11 @@ function photographerFactory (data) {
     return text
   }
 
+  function getModalAriaLabel () {
+    const text = `Contactez-moi ${name}`
+    return text
+  }
+
   // Creation de un paragraph price dans le dom
   function getPriceParagraphDOM () {
     const p = document.createElement('p')
@@ -59,5 +64,5 @@ function photographerFactory (data) {
     return img
   }
 
-  return { name, picture, getUserCardDOM, getPhotographIntroDOM, getPhotographPictureDOM, getPriceParagraphDOM, getModalTitleText }
+  return { name, picture, getUserCardDOM, getPhotographIntroDOM, getPhotographPictureDOM, getPriceParagraphDOM, getModalTitleText, getModalAriaLabel }
 }
