@@ -14,6 +14,12 @@ function closeModal () {
   modal.style.display = 'none'
 }
 
+document.addEventListener('keyup', function (event) {
+  if (event.code === 'Escape') {
+    closeModal()
+  }
+})
+
 const emailRegex = /^\w+([.-]?\w+)*@\w+([.-]?\w+)*(\.\w{2,3})+$/
 
 function handleSubmit (e) {

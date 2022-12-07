@@ -23,10 +23,10 @@ function mediaFactory (data, allLikes) {
       </a>
       <div class="media-text-container">
         <h2 class="media-name">${title}</h2>
-        <p class="media-like" aria-label="likes" tabindex="0">
+        <button class="media-like" aria-label="likes" tabindex="0">
           ${likes}
           <i class="media-like-icon fa-solid fa-heart"></i>
-        </p>
+        </button>
       </div>
         `
     }
@@ -38,10 +38,10 @@ function mediaFactory (data, allLikes) {
         </a>
         <div class="media-text-container">
           <h2 class="media-name">${title}</h2>
-          <p class="media-like" aria-label="likes" tabindex="0">
+          <button class="media-like" aria-label="likes" tabindex="0">
             ${likes}
             <i class="media-like-icon fa-solid fa-heart" ></i>
-          </p>
+          </button>
         </div>
         `
     }

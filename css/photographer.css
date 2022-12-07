@@ -145,15 +145,19 @@
     justify-content: space-between;
     margin-top: 10px;
     width: 350px;
-    color: #911c1c;
+    cursor: pointer;
 }
+
 .media-name {
     font-size: 24px;
+    color: #911c1c;
 }
 
 .media-like {
     font-size: 16px;
-    cursor: pointer;
+    color: #911c1c;
+    background: none;
+    border: none;
 }
 .icon_liked {
     color: #db2e2e;

@@ -21,26 +21,39 @@
                     src="assets/images/logo.png"
                     class="logo"
                     alt="Fisheye Home page"
-            /></a>
+            ></a>
         </header>
         <main id="main">
             <div class="photograph-header">
-                <button class="contact_button" onclick="displayModal()" aria-label="Contact Me">
+                <button
+                    class="contact_button"
+                    onclick="displayModal()"
+                    aria-label="Contact Me"
+                >
                     Contactez-moi
                 </button>
             </div>
-            <div id="contact_modal" aria-labelledby="name">
+            <div id="contact_modal">
                 <div class="modal">
                     <header>
                         <h2 class="modal_title">Contactez-moi</h2>
-                        <button class='modal_close' onclick="closeModal()" aria-label="Close contact form">
-                            <img src="assets/icons/close.svg" alt="close button" >
+                        <button
+                            class="modal_close"
+                            onclick="closeModal()"
+                            aria-label="Close contact form"
+                        >
+                            <img
+                                src="assets/icons/close.svg"
+                                alt="close button"
+                            >
                         </button>
                     </header>
                     <!-- Form -->
                     <form>
                         <div>
-                            <label class="contact_label" for="first">Prénom</label>
+                            <label class="contact_label" for="first"
+                                >Prénom</label
+                            >
                             <input
                                 class="contact_input"
                                 type="text"
@@ -58,7 +71,9 @@
                             >
                         </div>
                         <div>
-                            <label class="contact_label" for="email">Email</label>
+                            <label class="contact_label" for="email"
+                                >Email</label
+                            >
                             <input
                                 class="contact_input"
                                 type="email"
@@ -67,7 +82,9 @@
                             >
                         </div>
                         <div>
-                            <label class="contact_label" for="message">Votre message</label>
+                            <label class="contact_label" for="message"
+                                >Votre message</label
+                            >
                             <textarea
                                 class="contact_input contact_textarea"
                                 name="meessage"
@@ -85,16 +102,15 @@
             <div class="photograph-filter">
                 <label class="filter-label" id="filter">Trier par</label>
                 <div class="filter">
-                    <div
-                        role="button"
+                    <button
                         class="filter-btn filter-btn_dropdown"
                         aria-haspopup="listbox"
                         aria-expanded="false"
                     >
                         Popularité
                         <i class="filter-chevron fa-solid fa-chevron-down"></i>
-                    </div>
-                    <div
+                    </button>
+                    <button
                         role="listbox"
                         aria-selected="false"
                         aria-labelledby="filter"
@@ -102,8 +118,9 @@
                         class="filter-btn filter-btn_popular"
                     >
                         Popularité
-                    </div>
-                    <div
+                    </button>
+                    <button
+                        tabindex="0"
                         role="listbox"
                         aria-selected="false"
                         aria-labelledby="filter"
@@ -111,8 +128,9 @@
                         class="filter-btn filter-btn_date"
                     >
                         Date
-                    </div>
-                    <div
+                    </button>
+                    <button
+                        tabindex="0"
                         role="listbox"
                         aria-selected="false"
                         aria-labelledby="filter"
@@ -120,7 +138,7 @@
                         class="filter-btn filter-btn_title"
                     >
                         Titre
-                    </div>
+                    </button>
                 </div>
             </div>
             <!-- MEDIA   -->
@@ -133,19 +151,25 @@
 
         <!-- LIGHTBOX -->
         <div class="lightbox-bg">
-            <div class="lightbox" aria-label="image closeup view" >
+            <div class="lightbox" aria-label="image closeup view">
                 <button class="lightbox-close" aria-label="close dialog">
                     <i class="fa-solid fa-close"></i>
                 </button>
-                <a href="#" class="lightbox-arrow lightbox-arrow_prev" aria-label="previous image">
+                <a
+                    href="#"
+                    class="lightbox-arrow lightbox-arrow_prev"
+                    aria-label="previous image"
+                >
                     <i class="fa-solid fa-chevron-left"></i>
                 </a>
-                <a href="#" class="lightbox-arrow lightbox-arrow_next" aria-label="next image">
+                <a
+                    href="#"
+                    class="lightbox-arrow lightbox-arrow_next"
+                    aria-label="next image"
+                >
                     <i class="fa-solid fa-chevron-right"></i>
                 </a>
-                <div class="lightbox-item">
-
-                </div>
+                <div class="lightbox-item"></div>
             </div>
         </div>
         <script src="/scripts/factories/media.js"></script>

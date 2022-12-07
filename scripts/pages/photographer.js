@@ -181,6 +181,12 @@ closeLightboxBtn.addEventListener('click', () => {
   lightboxBg.style.display = 'none'
 })
 
+document.addEventListener('keyup', function (event) {
+  if (event.code === 'Escape') {
+    lightboxBg.style.display = 'none'
+  }
+})
+
 // *****************************************************
 // ********************** INITIALISATION
 async function initMedia (filter) {
