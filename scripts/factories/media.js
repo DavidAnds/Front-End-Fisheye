@@ -1,7 +1,6 @@
 function mediaFactory (data, allLikes) {
   const { image, video, title, likes, photographerId } = data
 
-  // Creation d'un paragraph qui affiche tout les likes
   function getAllLikesDom () {
     const p = document.createElement('p')
     p.innerHTML = `

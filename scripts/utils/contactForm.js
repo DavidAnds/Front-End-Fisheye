@@ -4,17 +4,18 @@ const emailInput = document.getElementById('email')
 const messageInput = document.getElementById('message')
 const form = document.querySelector('form')
 
-function displayModal() {
+function displayModal () {
   const modal = document.getElementById('contact_modal')
   modal.style.display = 'block'
 }
 
-function closeModal() {
+function closeModal () {
   const modal = document.getElementById('contact_modal')
   modal.style.display = 'none'
 }
 
-const emailRegex = /^\w+([\.-]?\w+)*@\w+([\.-]?\w+)*(\.\w{2,3})+$/
+const emailRegex = /^\w+([.-]?\w+)*@\w+([.-]?\w+)*(\.\w{2,3})+$/
+
 function handleSubmit (e) {
   e.preventDefault()
 

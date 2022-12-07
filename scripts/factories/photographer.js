@@ -13,7 +13,6 @@ function photographerFactory (data) {
     return text
   }
 
-  // Creation de un paragraph price dans le dom
   function getPriceParagraphDOM () {
     const p = document.createElement('p')
     p.innerText = `${price}/Jour`
@@ -21,7 +20,6 @@ function photographerFactory (data) {
     return p
   }
 
-  // Création de 1 carte photograph-item avec img h2 et p
   function getUserCardDOM () {
     const article = document.createElement('article')
     article.innerHTML = `
@@ -37,7 +35,6 @@ function photographerFactory (data) {
     return article
   }
 
-  // Création d'une div photograph-intro qui comprend 1 titre et 2 p
   function getPhotographIntroDOM () {
     const div = document.createElement('div')
     div.innerHTML = `
@@ -55,7 +52,6 @@ function photographerFactory (data) {
     return div
   }
 
-  // Création d'une img avec la class photograph-pic
   function getPhotographPictureDOM () {
     const img = document.createElement('img')
     img.setAttribute('src', picture)

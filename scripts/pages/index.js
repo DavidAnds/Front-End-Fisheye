@@ -1,22 +1,20 @@
-// fonction qui récuppere les données des photographes
+// ********************************************
+// ****************   Get
 async function getPhotographers () {
   try {
-    // Penser à remplacer par les données récupérées dans le json
     const response = await fetch('../../data/photographers.json')
     const { photographers } = await response.json()
-
-    // et bien retourner le tableau photographers seulement une fois
     return ({ photographers })
   } catch (error) {
     console.log(error)
   }
 }
 
-//  Fonction qui affiche sur le DOM les photographes
+// ********************************************
+// ****************   Display
 async function displayData (photographers) {
   const photographersSection = document.querySelector('.photographer_section')
 
-  // Pour chacun des photographe on crée un article que on va inséré dans photographers_section
   photographers.forEach((photographer) => {
     const photographerModel = photographerFactory(photographer)
     const userCardDOM = photographerModel.getUserCardDOM()

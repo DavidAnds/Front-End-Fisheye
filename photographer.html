@@ -1,5 +1,5 @@
 <!DOCTYPE html>
-<html>
+<html lang="fr">
     <head>
         <link href="css/style.css" rel="stylesheet" type="text/css" >
         <meta charset="utf-8" >
@@ -34,9 +34,10 @@
                     <header>
                         <h2 class="modal_title">Contactez-moi</h2>
                         <button class='modal_close' onclick="closeModal()" aria-label="Close contact form">
-                            <img src="assets/icons/close.svg"  >
+                            <img src="assets/icons/close.svg" alt="close button" >
                         </button>
                     </header>
+                    <!-- Form -->
                     <form>
                         <div>
                             <label class="contact_label" for="first">Prénom</label>
@@ -80,6 +81,7 @@
                     </form>
                 </div>
             </div>
+            <!-- Filter -->
             <div class="photograph-filter">
                 <label class="filter-label" id="filter">Trier par</label>
                 <div class="filter">
@@ -121,12 +123,15 @@
                     </div>
                 </div>
             </div>
+            <!-- MEDIA   -->
             <section class="photograph-medias"></section>
             <div class="photograph-fixed-box">
                 <div class="photograph-likes-box"></div>
                 <div class="photograph-price-box"></div>
             </div>
         </main>
+
+        <!-- LIGHTBOX -->
         <div class="lightbox-bg">
             <div class="lightbox" aria-label="image closeup view" >
                 <button class="lightbox-close" aria-label="close dialog">
